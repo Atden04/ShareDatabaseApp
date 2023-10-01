@@ -29,3 +29,5 @@ bin/
 .DS_Store
 /.idea/
 /Test_Java.iml
+/src/META-INF/MANIFEST.MF
+/ShareDatabaseApp.iml

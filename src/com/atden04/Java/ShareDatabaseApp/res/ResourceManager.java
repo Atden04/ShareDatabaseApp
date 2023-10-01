@@ -1,4 +1,4 @@
-package com.atden04.java_test.res;
+package com.atden04.Java.ShareDatabaseApp.res;
 
 import java.net.URL;
 

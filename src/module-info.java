@@ -3,8 +3,8 @@ module Test.Java {
     requires javafx.controls;
     requires javafx.graphics;
 
-    opens com.atden04.java_test.user_interface to javafx.fxml;
-    exports com.atden04.java_test.user_interface;
-    exports com.atden04.java_test.res;
-    opens com.atden04.java_test.res to javafx.fxml;
+    opens com.atden04.Java.ShareDatabaseApp.ModelViewController to javafx.fxml;
+    exports com.atden04.Java.ShareDatabaseApp.ModelViewController;
+    exports com.atden04.Java.ShareDatabaseApp.res;
+    opens com.atden04.Java.ShareDatabaseApp.res to javafx.fxml;
 }
