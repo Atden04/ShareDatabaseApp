@@ -16,7 +16,14 @@ import java.util.ListIterator;
  */
 public class Model {
 
+    Controller controller;
     private ObservableList<Person> people;
+
+    public void initialise(Controller controller) {
+        this.controller = controller;
+        this.createPeople();
+        this.controller.createTable(this.people);
+    }
 
     private void createPeople() {
         this.people = FXCollections.observableArrayList(
@@ -26,10 +33,6 @@ public class Model {
                 new Person("Emma", "Jones", "emma.jones@example.com"),
                 new Person("Michael", "Brown", "michael.brown@example.com")
         );
-    }
-
-    public void initialise() {
-        this.createPeople();
     }
 
     public ObservableList<Person> getPeople(){

@@ -1,37 +1,40 @@
 package com.atden04.Java.ShareDatabaseApp.DataModel;
 
-public class Person {
-    private String firstName;
-    private String lastName;
-    private String email;
+import javafx.beans.property.SimpleStringProperty;
 
-    public Person(String firstName, String lastName, String email){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+public class Person {
+    private final SimpleStringProperty firstName;
+    private final SimpleStringProperty lastName;
+    private final SimpleStringProperty email;
+
+    public Person(String fName, String lName, String email) {
+        this.firstName = new SimpleStringProperty(fName);
+        this.lastName = new SimpleStringProperty(lName);
+        this.email = new SimpleStringProperty(email);
     }
 
     public String getFirstName() {
-        return this.firstName;
+        return firstName.get();
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstName(String fName) {
+        firstName.set(fName);
     }
 
     public String getLastName() {
-        return lastName;
+        return lastName.get();
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastName(String fName) {
+        lastName.set(fName);
     }
 
     public String getEmail() {
-        return email;
+        return email.get();
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String fName) {
+        email.set(fName);
     }
 }
+

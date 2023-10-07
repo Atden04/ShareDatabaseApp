@@ -22,20 +22,24 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         //Parent root = FXMLLoader.load(getClass().getResource("scene.fxml"));
 
+        //Create the controller, view and model
+        this.controller = new Controller();
         this.model= new Model();
 
+        //create FXML loader and set controller.
         FXMLLoader loader = new FXMLLoader(ResourceManager.getFxml("scene.fxml"));
-        this.controller = new Controller();
         loader.setControllerFactory((Klass) -> this.controller);
 
+        //load and create the scene as well as adding the style sheet.
         Parent root = loader.load();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(ResourceManager.getCss("style.css").toExternalForm());
 
-        this.model.initialise();
-        this.controller.initialise(this.model);
 
-        stage.setTitle("JavaFX");
+        this.controller.initialise(this.model);
+        this.model.initialise(this.controller);
+
+        stage.setTitle("Share Database App v0.1");
         stage.setScene(scene);
         stage.show();
     }
