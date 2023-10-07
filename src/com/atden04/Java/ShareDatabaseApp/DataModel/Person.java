@@ -36,5 +36,10 @@ public class Person {
     public void setEmail(String fName) {
         email.set(fName);
     }
+
+    public String toString()
+    {
+        return "First Name : "+this.getFirstName()+", Last Name : "+this.getLastName()+", Email : "+this.getEmail();
+    }
 }
 

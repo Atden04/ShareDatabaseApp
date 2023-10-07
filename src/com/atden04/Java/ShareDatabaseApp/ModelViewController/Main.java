@@ -36,10 +36,10 @@ public class Main extends Application {
         scene.getStylesheets().add(ResourceManager.getCss("style.css").toExternalForm());
 
 
-        this.controller.initialise(this.model);
+        this.controller.initialise(this.model, stage);
         this.model.initialise(this.controller);
 
-        stage.setTitle("Share Database App v0.1");
+        stage.setTitle("Table View Tutorial");
         stage.setScene(scene);
         stage.show();
     }
