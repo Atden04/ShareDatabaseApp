@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.atden04.java.share_database_app.mvc.Controller">
+    <children>
+        <MenuBar VBox.vgrow="NEVER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem fx:id="addRowMenu" mnemonicParsing="false" onAction="#handleAddRow" text="Add Row" />
+                        <MenuItem fx:id="deleteRowMenu" mnemonicParsing="false" onAction="#handleDeleteRow" text="Delete Row" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+                <TabPane fx:id="tabPane" prefHeight="693.0" prefWidth="1019.0" tabClosingPolicy="UNAVAILABLE" />
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>
