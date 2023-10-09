@@ -1,0 +1,9 @@
+For the the sidebar tree view. have a look at : 
+	http://www.java2s.com/Tutorials/Java/JavaFX/0660__JavaFX_Tree_View.htm
+
+For v0.1 :
+    I want to create a class for my shares bought.
+    I will start off with a simple Class that only has string attributes to get working
+    and focus on the design and create Diagrams as I go.
+    Define class relationships, have a list with share bought information
+    then adjust class attributes to be more appropriate than strings.
