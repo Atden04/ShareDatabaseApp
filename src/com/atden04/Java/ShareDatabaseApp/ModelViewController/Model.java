@@ -18,11 +18,12 @@ public class Model {
 
     Controller controller;
     private ObservableList<Person> people;
+    private int selectedPerson;
 
     public void initialise(Controller controller) {
         this.controller = controller;
         this.createPeople();
-        this.controller.createTable(this.people);
+        this.controller.createTable(this.people, this.selectedPerson);
     }
 
     private void createPeople() {
@@ -38,5 +39,7 @@ public class Model {
     public ObservableList<Person> getPeople(){
         return this.people;
     }
+
+    public int getSelectedPerson(){return this.selectedPerson;}
 
 }

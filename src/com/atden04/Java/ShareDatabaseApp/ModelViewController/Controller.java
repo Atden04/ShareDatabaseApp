@@ -74,13 +74,11 @@ public class Controller {
         Scene addRowScene = new Scene(hBox, 600, 100);
         addRowStage.setScene(addRowScene);
         addRowStage.show();
-
-
-
     }
 
     @FXML
     public void handleDeleteRow(ActionEvent actionEvent) {
+        this.model.getPeople().remove(this.model.getSelectedPerson());
     }
 
     @FXML
@@ -93,9 +91,12 @@ public class Controller {
         System.out.println();
     }
 
-    public void createTable(ObservableList<Person> data){
-        TableView table = new TableView();
+    public void createTable(ObservableList<Person> data, int selectedDataItem){
+        TableView<Person> table = new TableView<>();
         table.setEditable(true);
+        TableSelectionModel<Person> selectionModel = table.getSelectionModel();
+        selectionModel.setSelectionMode(SelectionMode.SINGLE);
+        selectedDataItem = selectionModel.getSelectedIndex();
 
         TableColumn firstNameCol = new TableColumn("First Name");
         firstNameCol.setMinWidth(100);
@@ -153,7 +154,6 @@ public class Controller {
         tableTab.setText("People");
         tableTab.setContent(table);
         tabPane.getTabs().addAll(tableTab);
-
     }
 
 
