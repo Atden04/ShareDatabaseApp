@@ -1,4 +1,4 @@
-module Test.Java {
+module ShareDatabaseApp {
     requires javafx.fxml;
     requires javafx.controls;
     requires javafx.graphics;
