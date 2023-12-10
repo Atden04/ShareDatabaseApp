@@ -4,21 +4,21 @@ import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class Purchase {
+public class Sale {
     private SimpleStringProperty date;
     private SimpleFloatProperty quantity;
-    private SimpleFloatProperty cost;
-    private SimpleFloatProperty costPerShare;
+    private SimpleFloatProperty value;
+    private SimpleFloatProperty profit;
 
-    public Purchase(String newDate, float newQuantity, float newCost){
+    public Sale(String newDate, float newQuantity, float newValue, float cost){
         this.date = new SimpleStringProperty(newDate);
         this.quantity = new SimpleFloatProperty(newQuantity);
-        this.cost = new SimpleFloatProperty(newCost);
-        this.costPerShare = new SimpleFloatProperty(this.cost.get()/this.quantity.get());
+        this.value = new SimpleFloatProperty(newValue);
+        this.profit = new SimpleFloatProperty(this.value.get()-cost);
     }
 
     @Override
     public String toString(){
-        return "Date : "+this.date+", Quantity : "+this.quantity+", Cost : £"+this.cost+", Cost per Share : £"+this.costPerShare;
+        return "Date : "+this.date+", Quantity : "+this.quantity+", Sale : £"+this.value+", Profit : £"+this.profit;
     }
 }

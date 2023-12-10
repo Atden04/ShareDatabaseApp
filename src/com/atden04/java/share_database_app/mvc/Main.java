@@ -23,12 +23,15 @@ public class Main extends Application {
 
         //Create FXML Loader and set the controller
         FXMLLoader loader = new FXMLLoader(ResourceManager.getFxml("scene.fxml"));
-        this.controller = new Controller();
         loader.setControllerFactory((Klass) -> this.controller);
 
         //Load the root of the scene and create the scene itself
         Parent root = loader.load();
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(ResourceManager.getCss("style.css").toExternalForm());
+
+        this.controller.initialise(this.model, stage);
+        this.model.initialise(this.controller);
 
         stage.setTitle("Share Database App v0.1");   //set title of stage (window)
         stage.setScene(scene);      //set the scene of the stage

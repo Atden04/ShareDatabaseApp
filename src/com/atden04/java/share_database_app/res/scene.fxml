@@ -3,14 +3,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.atden04.Java.share_database_app.mvc.Controller">
+<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.atden04.java.share_database_app.mvc.Controller">
     <children>
         <MenuBar VBox.vgrow="NEVER">
             <menus>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem fx:id="addRowMenu" mnemonicParsing="false" onAction="#handleAddRow" text="Add Row" />
+                        <MenuItem fx:id="addRowMenu" mnemonicParsing="false" onAction="#handleAddStock" text="Add Stock" />
                         <MenuItem fx:id="deleteRowMenu" mnemonicParsing="false" onAction="#handleDeleteRow" text="Delete Row" />
+                        <MenuItem fx:id="outputData" mnemonicParsing="false" onAction="#handleOutputData" text="Output Data" />
                     </items>
                 </Menu>
             </menus>
