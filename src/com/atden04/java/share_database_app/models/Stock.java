@@ -13,6 +13,7 @@ public class Stock {
     private ObservableList<Dividend> dividends;
     private float totalCost;
     private float totalQuantity;
+    private float totalReturn;
 
     public Stock() {
         this.name = "";
@@ -53,8 +54,13 @@ public class Stock {
         this.totalQuantity+=quantity;
     }
 
+    public void addDividend(String date, float quantity, float value) {
+        this.dividends.add(new Dividend(date, quantity, value));
+        this.totalReturn+=value;
+    }
+
     public String toString() {
-        return "\nStock Name : "+this.getName()+", Status : "+this.getStatus()+", Quantity : "+this.totalQuantity + ", Cost : "+this.totalCost;
+        return "\nStock Name : "+this.getName()+", Status : "+this.getStatus()+", Quantity : "+this.totalQuantity + ", Cost : "+this.totalCost+", Return : "+this.totalReturn;
     }
 
     public String getName() {

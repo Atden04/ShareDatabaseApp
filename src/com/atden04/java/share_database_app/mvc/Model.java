@@ -22,7 +22,7 @@ public class Model {
         this.stock = FXCollections.observableArrayList(
                 new Stock("StockA", "08/12/2023", 5, 10)
         );
-        this.stockNames = FXCollections.observableArrayList("Add Stock", "StockA");
+        this.stockNames = FXCollections.observableArrayList("StockA");
     }
 
     private Stock getStock(String name) {
@@ -52,5 +52,9 @@ public class Model {
     {
         Stock stock = this.getStock(name);
         stock.addPurchase(date, quantity, cost);
+    }
+
+    public void addDividend(String choice, String date, float quantity, float value) {
+        this.getStock(choice).addDividend(date, quantity, value);
     }
 }

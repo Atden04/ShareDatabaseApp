@@ -9,7 +9,8 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem fx:id="addRowMenu" mnemonicParsing="false" onAction="#handleAddStock" text="Add Stock" />
+                        <MenuItem fx:id="addStockMenu" mnemonicParsing="false" onAction="#handleAddStock" text="Add Stock" />
+                        <MenuItem fx:id="addDividendMenu" mnemonicParsing="false" onAction="#handleAddDividend" text="Add Dividend"/>
                         <MenuItem fx:id="deleteRowMenu" mnemonicParsing="false" onAction="#handleDeleteRow" text="Delete Row" />
                         <MenuItem fx:id="outputData" mnemonicParsing="false" onAction="#handleOutputData" text="Output Data" />
                     </items>
