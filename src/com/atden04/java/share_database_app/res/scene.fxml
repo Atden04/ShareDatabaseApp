@@ -11,6 +11,8 @@
                     <items>
                         <MenuItem fx:id="addStockMenu" mnemonicParsing="false" onAction="#handleAddStock" text="Add Stock" />
                         <MenuItem fx:id="addDividendMenu" mnemonicParsing="false" onAction="#handleAddDividend" text="Add Dividend"/>
+                        <MenuItem fx:id="addSaleMenu" mnemonicParsing="false" onAction="#handleAddSale" text="Add Sale"/>
+                        <MenuItem fx:id="addLiquidationMenu" mnemonicParsing="false" onAction="#handleAddLiquidation" text="Add Liquidation"/>
                         <MenuItem fx:id="deleteRowMenu" mnemonicParsing="false" onAction="#handleDeleteRow" text="Delete Row" />
                         <MenuItem fx:id="outputData" mnemonicParsing="false" onAction="#handleOutputData" text="Output Data" />
                     </items>

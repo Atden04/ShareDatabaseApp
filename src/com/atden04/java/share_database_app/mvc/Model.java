@@ -57,4 +57,8 @@ public class Model {
     public void addDividend(String choice, String date, float quantity, float value) {
         this.getStock(choice).addDividend(date, quantity, value);
     }
+
+    public void addSale(String choice, String date, float value) {
+        this.getStock(choice).addSale(date, value);
+    }
 }

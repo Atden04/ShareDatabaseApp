@@ -126,7 +126,40 @@ public class Controller {
         Scene addRowScene = new Scene(hBox, 900, 100);
         addRowStage.setScene(addRowScene);
         addRowStage.show();
+    }
 
+    public void handleAddSale(ActionEvent actionEvent) {
+        Stage addRowStage = new Stage();
+        addRowStage.initOwner(stage);
+
+        ComboBox<String> selectionBox = new ComboBox<>(this.model.getStockNames());
+        TextField addDate = new TextField();
+        addDate.setPromptText("Date Sold");
+        TextField addValue = new TextField();
+        addValue.setPromptText("Value");
+
+        final Button addButton = new Button("Add");
+        addButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                String choice = selectionBox.getValue();
+                String date = addDate.getText();
+                float value = Float.parseFloat(addValue.getText());
+                model.addSale(choice, date, value);
+                addDate.clear();
+                addValue.clear();
+            }
+        });
+
+        HBox hBox = new HBox(selectionBox, addDate, addValue, addButton);
+        hBox.alignmentProperty().set(Pos.CENTER);
+        hBox.setSpacing(10);
+
+        Scene addRowScene = new Scene(hBox, 900, 100);
+        addRowStage.setScene(addRowScene);
+        addRowStage.show();
+    }
+
+    public void handleAddLiquidation(ActionEvent actionEvent) {
     }
 
     public void handleDeleteRow(ActionEvent actionEvent) {
@@ -135,6 +168,7 @@ public class Controller {
     public void handleOutputData(ActionEvent actionEvent) {
         System.out.println(this.model.getAllStock());
     }
+
 
 
 }

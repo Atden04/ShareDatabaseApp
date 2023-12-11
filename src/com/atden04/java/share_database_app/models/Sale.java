@@ -10,10 +10,10 @@ public class Sale {
     private SimpleFloatProperty value;
     private SimpleFloatProperty profit;
 
-    public Sale(String newDate, float newQuantity, float newValue, float cost){
-        this.date = new SimpleStringProperty(newDate);
-        this.quantity = new SimpleFloatProperty(newQuantity);
-        this.value = new SimpleFloatProperty(newValue);
+    public Sale(String date, float quantity, float value, float cost){
+        this.date = new SimpleStringProperty(date);
+        this.quantity = new SimpleFloatProperty(quantity);
+        this.value = new SimpleFloatProperty(value);
         this.profit = new SimpleFloatProperty(this.value.get()-cost);
     }
 
