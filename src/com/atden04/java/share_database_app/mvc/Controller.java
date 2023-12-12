@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.util.Objects;
 
@@ -59,7 +60,7 @@ public class Controller {
             @Override
             public void handle(ActionEvent actionEvent) {
                 String choice = selectionBox.getValue();
-                addName.setVisible(Objects.equals(choice, "Add Stock"));
+                addName.setVisible(Objects.equals(choice, "New Stock"));
             }
         });
         addButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -67,11 +68,10 @@ public class Controller {
                 String newName = addName.getText();
                 String choice = selectionBox.getValue();
                 String date = addDate.getText();
-                String status = "bought";
                 float quantity = Float.parseFloat(addQuantity.getText());
                 float cost = Float.parseFloat(addCost.getText());
 
-                if (Objects.equals(choice, "Add Stock")) {
+                if (Objects.equals(choice, "New Stock")) {
                     model.addStock(newName, date, quantity,cost);
                 }
                 else {
@@ -91,6 +91,12 @@ public class Controller {
         Scene addRowScene = new Scene(hBox, 900, 100);
         addRowStage.setScene(addRowScene);
         addRowStage.show();
+        addRowStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                options.remove(0);  //options is only a reference, and we don't want this option elsewhere in the code
+            }
+        });
     }
 
     public void handleAddDividend(ActionEvent actionEvent) {

@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 import static javafx.collections.FXCollections.observableArrayList;
 
 public class Stock {
-    private String name;
+    private SimpleStringProperty name;
     private StockStatus status;
     private ObservableList<Purchase> purchases;
     private ObservableList<Dividend> dividends;
@@ -17,7 +17,7 @@ public class Stock {
     private float totalReturn;
 
     public Stock() {
-        this.name = "";
+        this.name = new SimpleStringProperty();
         this.status = StockStatus.BOUGHT;
         this.purchases = observableArrayList();
         this.dividends = observableArrayList();
@@ -25,7 +25,7 @@ public class Stock {
     }
 
     public Stock(String name, String status) {
-        this.name = name;
+        this.name = new SimpleStringProperty(name);
         if (status.equalsIgnoreCase("bought"))
             this.status = StockStatus.BOUGHT;
         else if (status.equalsIgnoreCase("sold"))
@@ -38,7 +38,7 @@ public class Stock {
     }
 
     public Stock(String name, String date, float quantity, float cost) {
-        this.name = name;
+        this.name = new SimpleStringProperty(name);
         this.status = StockStatus.BOUGHT;
         this.purchases = observableArrayList();
         this.dividends = observableArrayList();
@@ -76,11 +76,11 @@ public class Stock {
     }
 
     public String getName() {
-        return this.name;
+        return this.name.get();
     }
 
     public void setName(String newName) {
-        this.name = newName;
+        this.name.set(newName);
     }
 
     public StockStatus getStatus() {
