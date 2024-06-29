@@ -12,6 +12,7 @@ public class Stock {
     private ObservableList<Purchase> purchases;
     private ObservableList<Dividend> dividends;
     private ObservableList<Sale> sales;
+    private ObservableList<Liquidation> liquidations;
     private float totalCost;
     private float totalQuantity;
     private float totalReturn;
@@ -22,6 +23,7 @@ public class Stock {
         this.purchases = observableArrayList();
         this.dividends = observableArrayList();
         this.sales = observableArrayList();
+        this.liquidations = observableArrayList();
     }
 
     public Stock(String name, String status) {
@@ -35,6 +37,7 @@ public class Stock {
         this.purchases = observableArrayList();
         this.dividends = observableArrayList();
         this.sales = observableArrayList();
+        this.liquidations = observableArrayList();
     }
 
     public Stock(String name, String date, float quantity, float cost) {
@@ -44,6 +47,7 @@ public class Stock {
         this.dividends = observableArrayList();
         this.purchases.add(new Purchase(date, quantity, cost));
         this.sales = observableArrayList();
+        this.liquidations = observableArrayList();
         this.totalCost+=cost;
         this.totalQuantity+=quantity;
     }
@@ -69,6 +73,13 @@ public class Stock {
         this.totalReturn = value-this.totalCost;
         this.totalQuantity = 0;
         this.totalCost = 0;
+    }
+
+    public void addLiquidation(String date, float value) {
+        this.liquidations.add(new Liquidation(date, this.totalQuantity, value));
+        this.status = StockStatus.LIQUIDATED;
+        this.totalReturn+=value;
+        this.totalQuantity = 0;
     }
 
     public String toString() {

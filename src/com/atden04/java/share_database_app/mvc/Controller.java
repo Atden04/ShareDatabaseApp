@@ -105,11 +105,11 @@ public class Controller {
 
         ComboBox<String> selectionBox = new ComboBox<>(this.model.getStockNames());
         TextField addDate = new TextField();
-        addDate.setPromptText("Date Bought");
+        addDate.setPromptText("Pay Date");
         TextField addQuantity = new TextField();
-        addQuantity.setPromptText("Quantity");
+        addQuantity.setPromptText("Holding");
         TextField addValue = new TextField();
-        addValue.setPromptText("Value");
+        addValue.setPromptText("Payment");
 
         final Button addButton = new Button("Add");
         addButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -166,6 +166,34 @@ public class Controller {
     }
 
     public void handleAddLiquidation(ActionEvent actionEvent) {
+        Stage addRowStage = new Stage();
+        addRowStage.initOwner(stage);
+
+        ComboBox<String> selectionBox = new ComboBox<>(this.model.getStockNames());
+        TextField addDate = new TextField();
+        addDate.setPromptText("Date Liquidated");
+        TextField addValue = new TextField();
+        addValue.setPromptText("Value");
+
+        final Button addButton = new Button("Add");
+        addButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                String choice = selectionBox.getValue();
+                String date = addDate.getText();
+                float value = Float.parseFloat(addValue.getText());
+                model.addLiquidation(choice, date, value);
+                addDate.clear();
+                addValue.clear();
+            }
+        });
+
+        HBox hBox = new HBox(selectionBox, addDate, addValue, addButton);
+        hBox.alignmentProperty().set(Pos.CENTER);
+        hBox.setSpacing(10);
+
+        Scene addRowScene = new Scene(hBox, 900, 100);
+        addRowStage.setScene(addRowScene);
+        addRowStage.show();
     }
 
     public void handleDeleteRow(ActionEvent actionEvent) {

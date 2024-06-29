@@ -50,8 +50,7 @@ public class Model {
 
     public void addPurchase(String name, String date, float quantity, float cost)
     {
-        Stock stock = this.getStock(name);
-        stock.addPurchase(date, quantity, cost);
+        this.getStock(name).addPurchase(date, quantity, cost);
     }
 
     public void addDividend(String choice, String date, float quantity, float value) {
@@ -60,5 +59,9 @@ public class Model {
 
     public void addSale(String choice, String date, float value) {
         this.getStock(choice).addSale(date, value);
+    }
+
+    public void addLiquidation(String choice, String date, float value) {
+        this.getStock(choice).addLiquidation(date, value);
     }
 }
