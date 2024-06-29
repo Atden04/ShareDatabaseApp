@@ -1,7 +1,7 @@
 package com.atden04.java.share_database_app.models;
 
+import com.atden04.java.share_database_app.enums.StockStatus;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import static javafx.collections.FXCollections.observableArrayList;

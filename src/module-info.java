@@ -8,4 +8,5 @@ module ShareDatabaseApp {
     exports com.atden04.java.share_database_app.models;
     opens com.atden04.java.share_database_app.mvc to javafx.fxml;
     opens com.atden04.java.share_database_app.res to javafx.fxml;
+    exports com.atden04.java.share_database_app.enums;
 }
