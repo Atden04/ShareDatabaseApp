@@ -42,7 +42,7 @@ public class Controller {
         addRowStage.initOwner(stage);
 
         ObservableList<String> options = this.model.getStockNames();
-        options.add(0, "Add Stock");
+        options.add(0, "New Stock");
         ComboBox<String> selectionBox = new ComboBox<>(options);
         TextField addName = new TextField();
         addName.setPromptText("Name");
