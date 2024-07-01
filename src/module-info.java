@@ -1,10 +1,12 @@
-module Test.Java {
+module ShareDatabaseApp {
     requires javafx.fxml;
     requires javafx.controls;
     requires javafx.graphics;
 
-    opens com.atden04.java_test.user_interface to javafx.fxml;
-    exports com.atden04.java_test.user_interface;
-    exports com.atden04.java_test.res;
-    opens com.atden04.java_test.res to javafx.fxml;
+    exports com.atden04.java.share_database_app.mvc;
+    exports com.atden04.java.share_database_app.res;
+    exports com.atden04.java.share_database_app.models;
+    opens com.atden04.java.share_database_app.mvc to javafx.fxml;
+    opens com.atden04.java.share_database_app.res to javafx.fxml;
+    exports com.atden04.java.share_database_app.enums;
 }

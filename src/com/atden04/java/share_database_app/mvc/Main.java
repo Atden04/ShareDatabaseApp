@@ -1,35 +1,46 @@
-package com.atden04.java_test.user_interface;
+package com.atden04.java.share_database_app.mvc;
 
-import com.atden04.java_test.res.ResourceManager;
+import com.atden04.java.share_database_app.res.ResourceManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.net.URL;
-
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main extends Application {
 
+    Model model;
     Controller controller;
 
     @Override
     public void start(Stage stage) throws Exception {
-        //Parent root = FXMLLoader.load(getClass().getResource("scene.fxml"));
 
-        FXMLLoader loader = new FXMLLoader(ResourceManager.getFxml("scene.fxml"));
+        // Create the controller and model
         this.controller = new Controller();
+        this.model = new Model();
+
+        //Create FXML Loader and set the controller
+        FXMLLoader loader = new FXMLLoader(ResourceManager.getFxml("scene.fxml"));
         loader.setControllerFactory((Klass) -> this.controller);
 
+        //Load the root of the scene and create the scene itself
         Parent root = loader.load();
         Scene scene = new Scene(root);
         scene.getStylesheets().add(ResourceManager.getCss("style.css").toExternalForm());
 
-        stage.setTitle("JavaFX");
-        stage.setScene(scene);
+        this.controller.initialise(this.model, stage);
+        this.model.initialise(this.controller);
+
+        stage.setTitle("Share Database App v0.1");   //set title of stage (window)
+        stage.setScene(scene);      //set the scene of the stage
         stage.show();
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Closing the App...");
     }
 
     public static void main(String[] args) {
