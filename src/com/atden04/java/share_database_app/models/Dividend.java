@@ -8,7 +8,7 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class Dividend {
     /**
-     * Data of the dividend being paid
+     * Date of the dividend being paid
      */
     private SimpleStringProperty date;
 
@@ -39,14 +39,14 @@ public class Dividend {
 
     /**
      * Overloaded constructor for the Dividend class
-     * @param newDate Date Dividend occurred
-     * @param newQuantity quantity
-     * @param newCost cost of share.
+     * @param date Date Dividend occurred
+     * @param quantity Quantity of shares held
+     * @param value Value of Dividend payment
      */
-    public Dividend(String newDate, float newQuantity, float newCost){
-        this.date = new SimpleStringProperty(newDate);
-        this.quantity = new SimpleFloatProperty(newQuantity);
-        this.value = new SimpleFloatProperty(newCost);
+    public Dividend(String date, float quantity, float value){
+        this.date = new SimpleStringProperty(date);
+        this.quantity = new SimpleFloatProperty(quantity);
+        this.value = new SimpleFloatProperty(value);
         this.paymentRate = new SimpleFloatProperty(this.value.get()/this.quantity.get());
     }
 
